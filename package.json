@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:extension": "next build"
+    "build:extension": "next build && node scripts/prepare-extension.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

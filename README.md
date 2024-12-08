@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trial Reminder Chrome Extension
 
-## Getting Started
+A Chrome extension to help you track and manage your free trial subscriptions, ensuring you never forget to cancel before being charged.
 
-First, run the development server:
+![Trial Reminder Screenshot](docs/screenshot.png)
+
+## Features
+
+- 🕒 Track multiple free trials with start dates and durations
+- 🔔 Get notifications 2 days before trials expire
+- 📊 Dashboard with trial statistics and potential savings
+- 🌓 Dark/Light mode support
+- 💾 Sync data across devices using Chrome Storage
+- 🔍 Auto-detection of trial signup pages (supported services)
+- 📱 Responsive design for the popup interface
+
+## Installation
+
+### From Chrome Web Store
+*(Coming soon)*
+
+### Local Development Installation
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/trial-reminder.git
+cd trial-reminder
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Build the extension:
 
-## Learn More
+```bash
+npm run build:extension
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Load the extension in Chrome:
+   - Open Chrome and navigate to `chrome://extensions/`
+   - Enable "Developer mode" in the top right
+   - Click "Load unpacked"
+   - Select the `out` directory from your project folder
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Prerequisites
+- Node.js (v18 or higher)
+- npm (v9 or higher)
 
-## Deploy on Vercel
+### Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Start development server
+npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Build the extension
+npm run build:extension
+
+# Run linting
+npm run lint
+
+# Start production server
+npm run start
+```
+
+### Project Structure
+```
+trial-reminder/
+├── public/
+│   ├── background.js     # Extension background script
+│   ├── manifest.json     # Extension manifest
+│   └── icons/           # Extension icons
+├── src/
+│   ├── app/             # Next.js app directory
+│   ├── components/      # React components
+│   ├── hooks/          # Custom React hooks
+│   └── lib/            # Utility functions
+└── ...configuration files
+```
+
+### Technology Stack
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [Chrome Extension APIs](https://developer.chrome.com/docs/extensions/reference/) - Browser integration
+
+## Features in Detail
+
+### Trial Tracking
+- Add trials with service name, start date, and duration
+- Automatic status updates (active/expired)
+- Edit or delete existing trials
+- Sort and filter trials by various criteria
+
+### Notifications
+- Automatic notifications 2 days before trial expiration
+- Customizable notification settings
+- Click notifications to open extension popup
+
+### Auto-Detection
+Currently supports auto-detection for:
+- Netflix
+- (Add other supported services)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Privacy
+
+This extension:
+- Only stores trial data in your Chrome sync storage
+- Does not collect any personal information
+- Does not send data to any external servers
+- Only requires necessary permissions for core functionality
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Icons provided by [Lucide Icons](https://lucide.dev/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Theme inspiration from [Vercel](https://vercel.com)
+
+## Support
+
+If you encounter any issues or have questions:
+- Open an issue in the GitHub repository
+- Contact: kulubiidris@gmail.com
+
+---
+
+Made with ❤️ by [@Idris Kulubi](https://github.com/169398)

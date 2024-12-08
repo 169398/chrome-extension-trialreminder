@@ -4,11 +4,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: '/',
+  assetPrefix: '',
   basePath: '',
   reactStrictMode: true,
   distDir: 'out',
   trailingSlash: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
     return config;
